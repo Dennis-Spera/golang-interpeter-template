@@ -1,0 +1,117 @@
+windows heuristic interpeter :
+---------------------------------------------------------
+
+whi.go, whi.exe
+extention *.whi
+
+modules needed
+---------------------------
+https://godoc.org/golang.org/x/sys/windows
+parser, yacc, tokenizer
+
+
+
+interpeter components
+-----------------------------------
+symbol table
+  tokens = scalar, hash, array
+          scalar = file descriptor, atomic variable
+          array = 
+          hash = 
+
+
+build get_token
+   
+   token is terminated by space or semicolon
+
+    token is identified by either ( reserved word, literal, operand, variable ).
+
+
+step 1.) identify valid scalar variables in assignment statement / comments
+
+scalar variable = [$](1) => [A-ZA-Z_](1)+ => [A-Za-z0-9_](0)+  
+                            length 16 or less
+
+statement =  {my} scalar-variable  {terminator}
+                    {my} scalar-variable  {assignment}  {literal} {equation} {terminator}
+                    {my} scalar-variable  {assignment}  {equation} {terminator}
+                    {my} scalar-variable  {assignment}  {address} {terminator}
+
+
+
+  namespace  = parent, child, tokens in each name space
+
+grammer
+   grammer for each possible statement
+tokenizer
+   generate list of tokens by type and namespace
+
+error presenter
+
+language components
+-----------------------------------
+operations
+operands
+constructs
+variables
+arrays
+comments
+terminator
+
+facilities
+-------------
+url checker
+permission modifier
+email
+im
+macros
+print to screen - prt
+
+
+
+sample script
+
+
+sample.whi
+--------------------------------------------------------------------------------------------------------------
+
+::
+::   this is sample code
+::
+
+$var = 10
+$$var = address of $var
+&file_desciptor
+
+@array
+#hash
+
+
+subroutine
+begin  soubroutine name
+	subroutine
+	begin  soubroutine name
+
+
+	end
+
+end
+
+
+
+grammar
+------------------------------------
+
+scalar variable = [$](1) => [A-ZA-Z_](1)+ => [A-Za-z0-9_](0)+  
+                            length 16 or less
+
+grammar scalar assignment :: scalar variable => assignment operator => value => terminator
+
+
+
+
+actual script  
+
+
+:: this is a test script
+my $a = 'hello';                               
