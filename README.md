@@ -1,2 +1,2 @@
 # golang-interpeter-template
-a template based in dragon book Aho, Sethi and Ullman
+a template based on "the dragon book" by Aho, Sethi and Ullman
